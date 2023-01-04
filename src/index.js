@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import HelloCom from './components/HelloCom';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App/>);
-const divsam = ReactDOM.createRoot(document.getElementById('logo-sam'));
-divsam.render(<HelloCom/>);
+root.render(
+   <App/>
+
+);
+
 // -----------------
+
 
 
 // If you want to start measuring performance in your app, pass a function
