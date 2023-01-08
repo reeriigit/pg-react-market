@@ -1,11 +1,13 @@
 // import { number } from 'prop-types'
-import { useState } from 'react'
+import { useState,useEffect} from 'react'
 import './FromComponent.css'
 import { v4 as uuidv4 } from 'uuid';
 const FromComponent =(props)=>{
 
+    console.log("render from component")
     const [title,setTitle]= useState('')
     const [amout,setAmout]= useState(0)
+    const [formValid,setFormValid]=useState(false)//เป็นการสร้างตัวปรเพื่อไม่ให้เเกิดกดได้ต่อเมือมีค่าให้ใส่
 
     const inputTitle = (event)=>{
         setTitle(event.target.value)
@@ -24,6 +26,11 @@ const FromComponent =(props)=>{
         setTitle('')///
         setAmout(0)///เป็นการเคลียค่าเมือมีการกดบันทึก
     }
+
+    useEffect(()=>{
+        const checkData = title.trim().length>0 && amout!==0
+        setFormValid(checkData)
+    },[title,amout])//เป็นการทำให้ การเพิ่มข้อมูลได้ก็ต่อเมือไม่มีค่า null
     
 
     return(
@@ -39,7 +46,7 @@ const FromComponent =(props)=>{
                     
                 </div>
                 <div>
-                    <button type="submit" className="btn">เพิ่มข้อมูล</button>
+                    <button type="submit" className="btn" disabled={!formValid}>เพิ่มข้อมูล</button>
                 </div>
             </form>
         </div>
