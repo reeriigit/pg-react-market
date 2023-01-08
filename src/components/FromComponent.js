@@ -1,15 +1,26 @@
+import { number } from 'prop-types'
+import { useState } from 'react'
 import './FromComponent.css'
 const FromComponent =()=>{
 
+    const [title,setTitle]= useState('')
+    const [amout,setAmout]= useState(0)
+
     const inputTitle = (event)=>{
-        console.log(event.target.value)
+        setTitle(event.target.value)
     }
     const inputAmout = (event)=>{
-        console.log(event.target.value)
+        setAmout(event.target.value)
     }
     const saveItem = (event)=>{
         event.preventDefault()//เป็นการไม่ให้รีเฟส
-        console.log("บันทึกข้อมูลเรียบร้อย")
+        const itemData = {
+            title:title,
+            amout:Number(amout)
+        }
+        console.log(itemData)
+        setTitle('')///
+        setAmout(0)///เป็นการเคลียค่าเมือมีการกดบันทึก
     }
     
 
@@ -18,11 +29,11 @@ const FromComponent =()=>{
             <form onSubmit={saveItem}>
                 <div className="form-control">
                     <label>ชื่อรายการ</label>
-                    <input type="text" placeholder="ระบุชื่อรายการ" onChange={inputTitle}/>
+                    <input type="text" placeholder="ระบุชื่อรายการ" onChange={inputTitle} value={title} />
                 </div>
                 <div className="form-control">
                     <label>ชจำนวนเงิน</label>
-                    <input type="number" placeholder="(+ รายรับ,- รายจ่าย)" onChange={inputAmout}/>
+                    <input type="number" placeholder="(+ รายรับ,- รายจ่าย)" onChange={inputAmout} value={amout} />
                     
                 </div>
                 <div>

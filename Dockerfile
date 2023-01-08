@@ -9,3 +9,6 @@ ENV PATH /app/node_modules/.bin:$PATH
 RUN npm install
 
 CMD ["npm","start"]
+
+# docker exec -it [container_name] bash
+
