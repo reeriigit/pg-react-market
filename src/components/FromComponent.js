@@ -1,7 +1,8 @@
-import { number } from 'prop-types'
+// import { number } from 'prop-types'
 import { useState } from 'react'
 import './FromComponent.css'
-const FromComponent =()=>{
+import { v4 as uuidv4 } from 'uuid';
+const FromComponent =(props)=>{
 
     const [title,setTitle]= useState('')
     const [amout,setAmout]= useState(0)
@@ -15,10 +16,11 @@ const FromComponent =()=>{
     const saveItem = (event)=>{
         event.preventDefault()//เป็นการไม่ให้รีเฟส
         const itemData = {
+            id:uuidv4(),
             title:title,
             amout:Number(amout)
         }
-        console.log(itemData)
+        props.onAddItem(itemData)
         setTitle('')///
         setAmout(0)///เป็นการเคลียค่าเมือมีการกดบันทึก
     }
