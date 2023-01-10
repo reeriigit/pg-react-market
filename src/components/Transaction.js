@@ -1,11 +1,8 @@
 import Item from "./Item";
 import './Transaction.css'
-import DataContaxt from "../data/DataContext";
-import { useContext } from "react";
 
 const Transaction  =(props)=>{
     const {item} = props
-    const {income,expense} = useContext(DataContaxt)
 
     return (
       <div>
@@ -16,9 +13,6 @@ const Transaction  =(props)=>{
        
  
       </ul>
-      <p>รายรับ : {income}</p>
-      <p>รายจ่าย : {expense}</p>
- 
       </div>
     );
   }

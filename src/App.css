@@ -11,14 +11,14 @@ body{
   justify-content: center;
   min-height: 100vh;
   margin: 0px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 
 .container{
   margin: 30px auto;
-  width:1000px;
-  background: rgb(175, 174, 174);
+  width:500px;
+  background: rgb(255, 255, 255);
   padding: 25px;
   border-radius: 10px;
 }
